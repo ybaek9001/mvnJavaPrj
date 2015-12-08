@@ -10,15 +10,28 @@
 		<constructor-arg value="호호호"/>			<!-- injection 방식 중 생성자를 이용한 방법 -->
 	</bean>
 	
-	<bean id = "notice" name = "n a b c" 
+	<bean name = "n a b c" 		
 			class = "com.newlecture.mvnJavaPrj.NewNotice">
 			<property name="title" ref="s"/>
 		<!-- <property name="title" value="OKebari" /> -->	<!--injection 방식 중 setter를 이용한 방법 setTitle() -> title -->
 		
+	</bean>		<!-- 왕자님  여기에 원래 id = "notice"가 있었음(NoticeLogHandler사용) -->
+	
+	
+	
+	<bean name="logAroundAdvice" class="com.newlecture.mvnJavaPrj.LogAroundAdvice">		<!-- 꽂아 놓을 것 -->
 	</bean>
 	
-	
-    
+	<!-- proxy생성 -->
+    <bean id = "notice" name="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">	<!-- 가짜 -->
+    	<property name="target" ref="n" />
+    	<property name="interceptorNames">
+    		<list>
+    			<value>logAroundAdvice</value>
+    			<!-- value 여러개가 올 수 가 있음 -->
+    		</list>
+    	</property>    
+    </bean>
 
     <!-- more bean definitions for services go here -->
 

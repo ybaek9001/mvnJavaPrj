@@ -22,7 +22,7 @@ public class App
     	
     	ApplicationContext context = 
     			new ClassPathXmlApplicationContext("com/newlecture/mvnJavaPrj/spring-config.xml"); //같은 패키지 안에 있으므로
-        Notice n = (Notice)context.getBean("notice");
+        Notice n = (Notice)context.getBean("notice");  /*spring-config설정에 따라 진짜가 될 수 도 가짜가 될 수도 있음(지금은 가짜가 사용)*/
         
         /*n.setTitle("hello");*/
         
