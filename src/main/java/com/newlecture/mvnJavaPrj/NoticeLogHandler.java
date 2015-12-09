@@ -9,6 +9,7 @@ import org.springframework.util.StopWatch;
 
 public class NoticeLogHandler implements InvocationHandler {
 	private Notice 왕자;
+	
 	public NoticeLogHandler(Notice 왕자) {
 		this.왕자 = 왕자;
 	}
